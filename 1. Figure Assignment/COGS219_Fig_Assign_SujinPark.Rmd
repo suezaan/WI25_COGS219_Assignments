@@ -17,6 +17,7 @@ Your code (ideally a GitHub repository)
 
 Lynch, C.J., Elbau, I.G., Ng, T. et al. Frontostriatal salience network expansion in individuals in depression. Nature 633, 624–633 (2024). https://doi.org/10.1038/s41586-024-07805-2
 
+![Extended Data Fig.3C](https://github.com/suezaan/WI25_COGS219_Assignments/blob/main/1.%20Figure%20Assignment/Original%20Figure:%20Extended%20Data%20Fig.%203C.png?raw=true)
 
 ## Strengths and weaknesses of the original figure. 
 
