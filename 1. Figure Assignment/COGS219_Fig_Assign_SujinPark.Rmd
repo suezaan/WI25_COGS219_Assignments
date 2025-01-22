@@ -1,0 +1,47 @@
+---
+title: "COGS219_Fig_Assign_SujinPark"
+output: html_document
+date: "2025-01-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Structure
+A short list of strengths and weaknesses of the original figure.
+Your figure (along with any tweaks/ improvements) and a caption describing what the figure represents.
+Your code (ideally a GitHub repository)
+
+## Journal article: 
+
+Lynch, C.J., Elbau, I.G., Ng, T. et al. Frontostriatal salience network expansion in individuals in depression. Nature 633, 624–633 (2024). https://doi.org/10.1038/s41586-024-07805-2
+
+
+## Strengths and weaknesses of the original figure. 
+
+https://github.com/ggseg/ggseg
+https://www.nature.com/articles/s41593-024-01741-0
+https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00037/118105 
+Some plots with motion/movement/quality of life?  
+https://www.nature.com/articles/s41467-023-42540-8?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20231030&utm_content=10.1038/s41467-023-42540-8#Fig5 
+https://www.tidymodels.org/start/case-study/ - hotel bookings 
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
