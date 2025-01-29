@@ -101,7 +101,7 @@ p <- ggplot(data_long, aes(x = Group, y = Value, color = Network)) +
     aes(fill = Network, color = Network),  
     stroke = 1    # mean stat   
   ) +  
-  facet_wrap(~ Network, scales = "fixed", ncol = 4) +  
+  facet_wrap(~ Network, scales = "fixed", ncol = 4) +  # nrow = 5 for 4 x 5 format (in case of bringing all the networks on the plot)
   labs(
     x = "Group",
     y = "% Cortex",
