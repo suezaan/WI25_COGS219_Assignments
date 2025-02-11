@@ -10,6 +10,10 @@ win = visual.Window([800,600],color="gray", units='pix',checkTiming=False)
 placeholder = visual.Rect(win,width=180,height=80, fillColor="lightgray",lineColor="black", lineWidth=6,pos=[0,0])
 word_stim = visual.TextStim(win,text="", height=40, color="black",pos=[0,0])
 instruction = visual.TextStim(win,text="Press the first letter of the ink color", height=20, color="black",pos=[0,-200])
+
+# add fixation cross
+fixation = visual.TextStim(win,text="+",color="black",height=15)
+
 while True:
     cur_stim = random.choice(stimuli)
     word_stim.setText(cur_stim)
@@ -17,17 +21,27 @@ while True:
 
     placeholder.draw()
     instruction.draw()
-    word_stim.draw()
+    fixation.draw() # draw fixation
+    win.flip()
+    core.wait(.5)
 
+    placeholder.draw()
+    instruction.draw()
+    win.flip()
+    core.wait(.5)
+
+    placeholder.draw()
+    instruction.draw()
+    word_stim.draw()
     win.flip()
     core.wait(1)
 
     placeholder.draw()
     instruction.draw()
     win.flip()
-    core.wait(.15)
+    core.wait(.5)
 
     if event.getKeys(['q']):
         win.close()
         core.quit()
-  
+ 
