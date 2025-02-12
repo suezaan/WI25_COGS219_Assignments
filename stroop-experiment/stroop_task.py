@@ -63,7 +63,7 @@ while True:
         feedback_slow.draw()
         win.flip()
         core.wait(1)
-    elif key_pressed[0] == cur_word[0]:
+    elif key_pressed[0] == cur_color[0]: # should response first letter of ink color (not a word)!
         pass
     elif key_pressed[0] == 'q':
         break
