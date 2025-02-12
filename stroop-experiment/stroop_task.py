@@ -22,6 +22,7 @@ key_pressed=False # for key press
 valid_response_keys = ['r', 'o', 'y', 'g', 'b','q']
 
 feedback_ic = visual.TextStim(win,text="Incorrect", height=30, color="black",pos=[0,0])
+feedback_slow = visual.TextStim(win,text="Too slow", height=30, color="black",pos=[0,0])
 
 while True:
     cur_stim = random.choice(stimuli)
@@ -43,10 +44,13 @@ while True:
     win.flip()
 
     timer.reset() # reset clock to measure RT after flip
-    key_pressed = event.waitKeys(keyList=valid_response_keys)
-    RTs.append(round(timer.getTime()*1000,0)) # rounded to the nearest milliseconds 
+    key_pressed = event.waitKeys(keyList=valid_response_keys,maxWait=2) # set max wait time
 
-    if key_pressed[0] == cur_stim[0]:
+    if not key_pressed: # too slow
+        feedback_slow.draw()
+        win.flip()
+        core.wait(1)
+    elif key_pressed[0] == cur_stim[0]:
         pass
     elif key_pressed[0] == 'q':
         break
@@ -54,6 +58,8 @@ while True:
         feedback_ic.draw()
         win.flip()
         core.wait(1)
+    RTs.append(round(timer.getTime()*1000,0)) # rounded to the nearest milliseconds 
+
 
 print(RTs) # printed RTs: [1059.0, 790.0, 809.0, 733.0, 787.0, 387.0]
  
