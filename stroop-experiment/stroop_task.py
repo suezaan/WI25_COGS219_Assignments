@@ -19,9 +19,10 @@ RTs = [] # store reaction time
 timer = core.Clock() # use psychopy times 
 key_pressed=False # for key press
 
+valid_response_keys = ['r', 'o', 'y', 'g', 'b','q']
+
 while True:
     cur_stim = random.choice(stimuli)
-    valid_response_keys = cur_stim[0] # valid response keys for current stimuli
 
     word_stim.setText(cur_stim)
     word_stim.setColor(cur_stim)
@@ -46,5 +47,5 @@ while True:
     if key_pressed[0] == 'q':
         break
 
-print(RTs)
+print(RTs) # printed RTs: [1059.0, 790.0, 809.0, 733.0, 787.0, 387.0]
  
