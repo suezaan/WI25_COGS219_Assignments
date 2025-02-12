@@ -24,11 +24,24 @@ valid_response_keys = ['r', 'o', 'y', 'g', 'b','q']
 feedback_ic = visual.TextStim(win,text="Incorrect", height=30, color="black",pos=[0,0])
 feedback_slow = visual.TextStim(win,text="Too slow", height=30, color="black",pos=[0,0])
 
-while True:
-    cur_stim = random.choice(stimuli)
+trial_types = ['congruent', 'incongruent']
 
-    word_stim.setText(cur_stim)
-    word_stim.setColor(cur_stim)
+# incongruent trials
+def make_incongruent(color):
+    other_colors = [stimulus for stimulus in stimuli if stimulus != color]
+    incongruent_color = random.choice(other_colors)
+    return incongruent_color
+
+while True:
+    cur_word = random.choice(stimuli)
+    trial_type = random.choice(trial_types)
+
+    word_stim.setText(cur_word)
+    if trial_type == 'congruent':
+        cur_color = cur_word
+    else:
+        cur_color = make_incongruent(cur_word)
+    word_stim.setColor(cur_color)
 
     placeholder.draw()
     fixation.draw() # draw fixation
@@ -50,7 +63,7 @@ while True:
         feedback_slow.draw()
         win.flip()
         core.wait(1)
-    elif key_pressed[0] == cur_stim[0]:
+    elif key_pressed[0] == cur_word[0]:
         pass
     elif key_pressed[0] == 'q':
         break
