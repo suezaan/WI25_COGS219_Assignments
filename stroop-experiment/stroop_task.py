@@ -15,8 +15,14 @@ instruction = visual.TextStim(win,text="Press the first letter of the ink color"
 # add fixation cross
 fixation = visual.TextStim(win,text="+",color="black",height=15)
 
+RTs = [] # store reaction time 
+timer = core.Clock() # use psychopy times 
+key_pressed=False # for key press
+
 while True:
     cur_stim = random.choice(stimuli)
+    valid_response_keys = cur_stim[0] # valid response keys for current stimuli
+
     word_stim.setText(cur_stim)
     word_stim.setColor(cur_stim)
 
@@ -32,13 +38,13 @@ while True:
     placeholder.draw()
     word_stim.draw() # color word appear 
     win.flip()
-    core.wait(1)
 
-    placeholder.draw()
-    win.flip()
-    core.wait(.15)
+    timer.reset() # reset clock to measure RT after flip
+    key_pressed = event.waitKeys(keyList=valid_response_keys)
+    RTs.append(round(timer.getTime()*1000,0)) # rounded to the nearest milliseconds 
 
-    if event.getKeys(['q']):
-        win.close()
-        core.quit()
+    if key_pressed[0] == 'q':
+        break
+
+print(RTs)
  
