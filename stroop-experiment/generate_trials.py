@@ -30,13 +30,13 @@ def generate_trials(subj_code, seed, num_repetitions=25):
     try:
         os.mkdir('trials')
     except FileExistsError:
-        print('opening file...')
+        print('opening file...\n')
     f = open(f'trials/{subj_code}_trials.csv','w')
 
     # write.header
     separator=','
     header = separator.join(['subj_code','seed','word','color','trial_type','orientation'])
-    f.write(hearder+'\n')
+    f.write(header+'\n')
 
     # write code to loop through creating and adding trials to the file here
     trials = []
@@ -48,7 +48,7 @@ def generate_trials(subj_code, seed, num_repetitions=25):
                     cur_color = make_incongruent(cur_word,colors) 
                 else:
                     cur_color = cur_word # match word and color (congruent trial)
-                trials.append([subj_code,seed,cur_word,cur_trial_type,cur_orientation])
+                trials.append([subj_code,seed,cur_word,cur_color,cur_trial_type,cur_orientation])
 
     # shuffle
     random.shuffle(trials)
