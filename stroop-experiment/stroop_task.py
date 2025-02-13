@@ -12,7 +12,6 @@ word_stim = visual.TextStim(win,text="", height=40, color="black",pos=[0,0])
 instruction = visual.TextStim(win,text="Press the first letter of the ink color", height=20, color="black",pos=[0,-200],autoDraw=True) 
     # draw instruction for every window flip
 
-# add fixation cross
 fixation = visual.TextStim(win,text="+",color="black",height=15)
 
 RTs = [] # store reaction time 
@@ -26,12 +25,19 @@ feedback_slow = visual.TextStim(win,text="Too slow", height=30, color="black",po
 
 trial_types = ['congruent', 'incongruent']
 
-# incongruent trials
-def make_incongruent(color):
-    other_colors = [stimulus for stimulus in stimuli if stimulus != color]
-    incongruent_color = random.choice(other_colors)
-    return incongruent_color
+# runtime var
+def get_runtime_vars(vars_to_get,order,exp_version="Stroop"):
+    infoDlg = gui.DlgFromDict(dictionary=vars_to_get, title=exp_version, order=order)
+    if infoDlg.OK:
+        return vars_to_get
+    else:
+        print('Use Cancelled')
 
+order = ['subj_code','seed','num_reps']
+runtime_vars = get_runtime_vars({'subj_code':'stroop_101','seed': 101, 'num_reps': 25}, order)
+print(runtime_vars)
+
+### loop ###
 while True:
     cur_word = random.choice(stimuli)
     trial_type = random.choice(trial_types)
@@ -63,7 +69,7 @@ while True:
         feedback_slow.draw()
         win.flip()
         core.wait(1)
-    elif key_pressed[0] == cur_color[0]: # should response first letter of ink color (not a word)!
+    elif key_pressed[0] == cur_word[0]:
         pass
     elif key_pressed[0] == 'q':
         break
