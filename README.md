@@ -10,4 +10,4 @@ This is a repository for COGS219 Assignments
   
 2. Stroop Task 
 
-3. Final Project: Child Action Control Task (with Jon), see [Jon's github repository](https://github.com/j0n-a/fMRI_Pediatric_Movement_Battery)
+3. Final Project: Child Action Control Task (with Jon), see [Jon's github repository](https://github.com/j0n-a/fMRI_Pediatric_Movement_Battery), and [presentation slides](https://docs.google.com/presentation/d/1qZ4pWsXDPzrSUO_ZLgVYP4E0tY6oYLQKvtc0eWE03cM/edit#slide=id.g3357ae305e7_1_0)
